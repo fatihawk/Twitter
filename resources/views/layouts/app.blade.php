@@ -80,22 +80,55 @@
         <main class="container">
             <div class="row">
                 <div class="col-3">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Anasayfa</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#" role="tab" aria-controls="profile">Keşfet</a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#" role="tab" aria-controls="messages">Bildirimler</a>
-                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#" role="tab" aria-controls="settings">Mesajlar</a>
-                        <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#" role="tab" aria-controls="home">Yer işaretleri</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#" role="tab" aria-controls="profile">Listeler</a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#" role="tab" aria-controls="messages">Profil</a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#" role="tab" aria-controls="messages">Daha fazla</a>
-                    </div>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <div class="sidebar">
+                        <button class="btn"><i class="fa fa-twitter"></i></button><br><br>
+                        <a href="#Anasayfa"><i class="fa fa-fw fa-home"></i> Anasayfa</a><br><br>
+                        <a href="#Keşfet"><i class="fa fa-fw fa-hashtag"></i> Keşfet</a><br><br>
+                        <a href="#Bildirimler"><i class="fa fa-fw fa-bell"></i> Bidirimler</a><br><br>
+                        <a href="#Mesajlar"><i class="fa fa-fw fa-envelope"></i> Mesajlar</a><br><br>
+                        <a href="#Yer işaretleri"><i class="fa fa-fw fa-bookmark"></i> Yer işaretleri</a><br><br>
+                        <a href="#Listeler"><i class="fa fa-fw fa-list-alt"></i> Listeler</a><br><br>
+                        <a href="#Profil"><i class="fa fa-fw fa-user"></i> Profil</a><br><br>
+                        <a href="#Daha fazla"><i class="fa fa-fw fa-ellipsis-h"></i> Daha fazla</a><br><br>
+                        <button class="button">tweetle</button>
+                        <!-- .button {
+                        background-color: #ddd;
+                        border: none;
+                        color: black;
+                        padding: 10px 20px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                        border-radius: 16px;
+                        }  -->
+                    </div> 
                 </div>
                 <div class="col-6">
                     @yield('content')
                 </div>
                 <div class="col-3">
-                    One of three columns
+                    <div class="search-container">
+                        <form action="/action_page.php">
+                          <input type="text" placeholder="Search.." name="search">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>    
+                   <a href="#"><b>İlgini çekebilecek gündemler</b></a><br><hr>
+                   <a href="#">Türkiye tarihinde gündemde</a><br>
+                   <a href="#"> #yasindusmaniacunmedya</a><br>
+                   <a href="#"> 12,3 B Tweet</a><br><hr>
+                   <a href="#">Türkiye tarihinde gündemde</a><br>
+                   <a href="#">Bahçeli</a><br>
+                   <a href="#">9.048 Tweet</a><br><hr>
+                   <a href="#">Türkiye tarihinde gündemde</a><br>
+                   <a href="#">Sevda Noyan</a><br>
+                   <a href="#">94,5 B Tweet</a><br><hr>
+                   <a href="#">Türkiye tarihinde gündemde</a><br>
+                   <a href="#">Kanal 7</a><br>
+                   <a href="#">4.834 Tweet</a><br><hr>
                 </div>
             </div>
 
