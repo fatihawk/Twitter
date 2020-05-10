@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,60 +81,83 @@
         <main class="container">
             <div class="row">
                 <div class="col-3">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                    <div class="sidebar">
-                        <button class="btn"><i class="fa fa-twitter"></i></button><br><br>
-                        <a href="#Anasayfa"><i class="fa fa-fw fa-home"></i> Anasayfa</a><br><br>
-                        <a href="#Keşfet"><i class="fa fa-fw fa-hashtag"></i> Keşfet</a><br><br>
-                        <a href="#Bildirimler"><i class="fa fa-fw fa-bell"></i> Bidirimler</a><br><br>
-                        <a href="#Mesajlar"><i class="fa fa-fw fa-envelope"></i> Mesajlar</a><br><br>
-                        <a href="#Yer işaretleri"><i class="fa fa-fw fa-bookmark"></i> Yer işaretleri</a><br><br>
-                        <a href="#Listeler"><i class="fa fa-fw fa-list-alt"></i> Listeler</a><br><br>
-                        <a href="#Profil"><i class="fa fa-fw fa-user"></i> Profil</a><br><br>
-                        <a href="#Daha fazla"><i class="fa fa-fw fa-ellipsis-h"></i> Daha fazla</a><br><br>
-                        <button class="button">tweetle</button>
-                        <!-- .button {
-                        background-color: #ddd;
-                        border: none;
-                        color: black;
-                        padding: 10px 20px;
-                        text-align: center;
-                        text-decoration: none;
-                        display: inline-block;
-                        margin: 4px 2px;
-                        cursor: pointer;
-                        border-radius: 16px;
-                        }  -->
-                    </div> 
+
+                    <div class="sticky-top">
+                        <div class="sidebar">
+                            <button class="btn">
+                                <h2><i class="fa fa-twitter"></i></h2>
+                            </button>
+                            <a href="#Anasayfa">
+                                <h3><i class="fa fa-fw fa-home"></i>Anasayfa</h3>
+                            </a><br>
+                            <a href="#Keşfet">
+                                <h3><i class="fa fa-fw fa-hashtag"></i> Keşfet</h3>
+                            </a><br>
+                            <a href="#Bildirimler">
+                                <h3><i class="fa fa-fw fa-bell"></i> Bidirimler</h3>
+                            </a><br>
+                            <a href="#Mesajlar">
+                                <h3><i class="fa fa-fw fa-envelope"></i> Mesajlar</h3>
+                            </a><br>
+                            <a href="#Yer işaretleri">
+                                <h3><i class="fa fa-fw fa-bookmark"></i> Yer işaretleri</h3>
+                            </a><br>
+                            <a href="#Listeler">
+                                <h3><i class="fa fa-fw fa-list-alt"></i> Listeler</h3>
+                            </a><br>
+                            <a href="#Profil">
+                                <h3><i class="fa fa-fw fa-user"></i> Profil</h3>
+                            </a><br>
+                            <a href="#Daha fazla">
+                                <h3><i class="fa fa-fw fa-ellipsis-h"></i> Daha fazla</h3>
+                            </a><br>
+                            <button class="btn btn-primary tweetle">
+                                <h3>Tweetle</h3>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-6">
                     @yield('content')
                 </div>
-                <div class="col-3">
-                    <div class="search-container">
-                        <form action="/action_page.php">
-                          <input type="text" placeholder="Search.." name="search">
-                          <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>    
-                   <a href="#"><b>İlgini çekebilecek gündemler</b></a><br><hr>
-                   <a href="#">Türkiye tarihinde gündemde</a><br>
-                   <a href="#"> #yasindusmaniacunmedya</a><br>
-                   <a href="#"> 12,3 B Tweet</a><br><hr>
-                   <a href="#">Türkiye tarihinde gündemde</a><br>
-                   <a href="#">Bahçeli</a><br>
-                   <a href="#">9.048 Tweet</a><br><hr>
-                   <a href="#">Türkiye tarihinde gündemde</a><br>
-                   <a href="#">Sevda Noyan</a><br>
-                   <a href="#">94,5 B Tweet</a><br><hr>
-                   <a href="#">Türkiye tarihinde gündemde</a><br>
-                   <a href="#">Kanal 7</a><br>
-                   <a href="#">4.834 Tweet</a><br><hr>
+                <div class="col-3 ">
+                    <div class="sticky-top">
+                        <div class="search-container">
+                            <form action="/action_page.php">
+                                <button class="search" type="submit"><i class="fa fa-search"></i></button>
+                                <input class="ara" type="text" placeholder="Search.." name="search">
+                            </form>
+                        </div>
+                        <div class="Tags">
+                            <a href="#"><b>İlgini çekebilecek gündemler</b></a><br>
+                            <hr>
+                            <a class="türkiye-gündemi" href="#">Türkiye tarihinde gündemde</a><br>
+                            <a class="gündem-ogeleri" href="#">
+                                <h5>#yasindusmaniacunmedya</h5>
+                            </a>
+                            <a class="twit-sayisi" href="#"> 12,3 B Tweet</a><br>
+                            <hr>
+                            <a class="türkiye-gündemi" href="#">Türkiye tarihinde gündemde</a><br>
+                            <a class="gündem-ogeleri" href="#">
+                                <h5>Bahçeli</h5>
+                            </a>
+                            <a class="twit-sayisi" href="#">9.048 Tweet</a><br>
+                            <hr>
+                            <a class="türkiye-gündemi" href="#">Türkiye tarihinde gündemde</a><br>
+                            <a class="gündem-ogeleri" href="#">
+                                <h5>CNNTürk</h5>
+                            </a>
+                            <a class="twit-sayisi" href="#">94,5 B Tweet</a><br>
+                            <hr>
+                            <a class="türkiye-gündemi" href="#">Türkiye tarihinde gündemde</a><br>
+                            <a class="gündem-ogeleri" href="#">
+                                <h5>Kanal 7</h5>
+                            </a>
+                            <a class="twit-sayisi" href="#">4.834 Tweet</a><br>
+                            <hr>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            
-            
         </main>
     </div>
 </body>

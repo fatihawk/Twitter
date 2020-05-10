@@ -6,3 +6,78 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.card-header{
+    color: white !important;
+}
+body{
+    background-color:#15202B !important; 
+}
+.card{
+    background-color:#15202B !important;
+}
+.form-control{
+    background-color:#15202B !important;
+}
+p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    color: white;
+}
+.dropdown-toggle{
+    padding: 0 !important;
+    border-radius: 0px;
+    background-color: #15202B;
+    border-color: #15202B;
+    font-size: 1.5rem;
+}
+.gündem-ogeleri{
+    color: white;
+}
+.türkiye-gündemi,.twit-sayisi{
+    color: gray;
+}
+h3{
+    color: white !important;
+}
+.tweetle{
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 2rem;
+}
+.btn{
+    color:rgb(136, 153, 166);
+}
+.gonder{
+    float: right;
+    color: white;
+    margin-top: 10px;
+}
+hr{
+    color: white;
+}
+.search{
+    border: 0;
+    padding: 0;
+}
+.ara{
+    background-color:#15202B ;
+    padding: 0;
+    border: 0;
+}
+input[type="text"]::placeholder{
+    color: rgb(136, 153, 166);
+}
+.search-container{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+b{
+    color: white;
+    font-size: 1.3rem;
+}
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
