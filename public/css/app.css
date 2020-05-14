@@ -10992,3 +10992,15 @@ b {
   border-radius: 50%;
 }
 
+span {
+  color: white;
+  font-size: 1.3rem;
+  padding-left: 20px;
+}
+
+.col-form-label,
+.form-check-label.login_button,
+.register_button {
+  color: white;
+}
+

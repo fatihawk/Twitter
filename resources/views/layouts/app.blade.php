@@ -24,70 +24,16 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
         <main class="container">
             <div class="row">
                 <div class="col-3">
-
                     <div class="sticky-top">
                         <div class="sidebar">
                             <button class="btn">
                                 <h2><i class="fa fa-twitter"></i></h2>
                             </button>
-                            <a href="#Anasayfa">
+                            <a href="{{ route('home') }}">
                                 <h3><i class="fa fa-fw fa-home"></i>Anasayfa</h3>
                             </a><br>
                             <a href="#Keşfet">
@@ -113,7 +59,36 @@
                             </a><br>
                             <button class="btn btn-primary tweetle">
                                 <h3>Tweetle</h3>
-                            </button>
+                            </button><br><br>
+                            @auth
+                            <div class="user">
+                                <button type="button"
+                                    class="btn btn-primary dropdown-toggle dropdown dropleft float-right"
+                                    data-toggle="dropdown"></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('login') }}"> Var olan kişi ekle</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="
+                                event.preventDefault(); 
+                                document.getElementById('logout-form').submit();">
+                                        {{ auth()->user()->name }} hesabından çıkış yap
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                                <img src="avatar.png" alt="Avatar" class="avatar">
+                                <span>{{ auth()->user()->name }}</span>
+                            </div>
+                            @endauth
+                            @guest
+                            <a href="{{ route('login') }}">
+                                <h3>Login</h3>
+                            </a>
+                            <a href="{{ route('register') }}">
+                                <h3>Register</h3>
+                            </a>
+                            @endguest
                         </div>
                     </div>
                 </div>
@@ -156,8 +131,18 @@
                             <a class="twit-sayisi" href="#">4.834 Tweet</a><br>
                             <hr>
                         </div>
+                        <br>
+                        <div class="kimi_takip_etmeli">
+                            <b>Kimi takip etmeli</b><br><hr>
+                            <img src="avatar.png" alt="Avatar" class="avatar">
+                            <span>Bill Gates</span><br><hr>
+                            <img src="avatar.png" alt="Avatar" class="avatar">
+                            <span>Elon Musk</span><br><hr> 
+                            <a href="#">Daha fazla göster</a>
+                        </div>
                     </div>
                 </div>
+            </div>
         </main>
     </div>
 </body>
