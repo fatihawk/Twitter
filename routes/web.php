@@ -18,9 +18,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Auth::routes();
-
+Route::get('profiles/{user}', 'ProfilesController@show')->name('profiles.show');
 Route::group(['middleware'=>'auth', 'prefix' => 'admin'], function() {
     Route::get('post/form', 'PostController@form') ->name('post.form');
     Route::post('post/save', 'PostController@save') ->name('post.save');
     Route::get('post/{id}/form','PostController@delete') ->name('post.delete');
+    Route::get('post/{id}/like','PostController@like') ->name('post.like');
 }); 

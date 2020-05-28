@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Post;
+use App\PostLikes;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 
     /**
      * The attributes that should be cast to native types.
@@ -38,7 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(Post::class);
+    }
+    public function likes()
+    {
+        return $this->hasMany(PostLikes::class);
     }
 }

@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $posts = Post::all();
+        $posts = Post::with('likes')->get();
         return view('home',compact('posts'));
     }
 }

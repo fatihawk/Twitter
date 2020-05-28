@@ -11004,3 +11004,19 @@ span {
   color: white;
 }
 
+.content {
+  padding-left: 20px !important;
+}
+
+.dropdown-menu {
+  z-index: 9999;
+}
+
+.liked {
+  color: #e0245e;
+}
+
+.unliked {
+  color: #8899a6;
+}
+

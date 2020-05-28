@@ -51,7 +51,7 @@
                             <a href="#Listeler">
                                 <h3><i class="fa fa-fw fa-list-alt"></i> Listeler</h3>
                             </a><br>
-                            <a href="#Profil">
+                            <a href="#">
                                 <h3><i class="fa fa-fw fa-user"></i> Profil</h3>
                             </a><br>
                             <a href="#Daha fazla">
@@ -77,8 +77,8 @@
                                         @csrf
                                     </form>
                                 </div>
-                                <img src="avatar.png" alt="Avatar" class="avatar">
-                                <span>{{ auth()->user()->name }}</span>
+                                <img src="/avatar.png" alt="Avatar" class="avatar">
+                                <span><a href="{{ route('profiles.show',[auth()->user()->name]) }}">{{ auth()->user()->name }}</a></span>
                             </div>
                             @endauth
                             @guest
@@ -134,9 +134,9 @@
                         <br>
                         <div class="kimi_takip_etmeli">
                             <b>Kimi takip etmeli</b><br><hr>
-                            <img src="avatar.png" alt="Avatar" class="avatar">
+                            <img src="/avatar.png" alt="Avatar" class="avatar">
                             <span>Bill Gates</span><br><hr>
-                            <img src="avatar.png" alt="Avatar" class="avatar">
+                            <img src="/avatar.png" alt="Avatar" class="avatar">
                             <span>Elon Musk</span><br><hr> 
                             <a href="#">Daha fazla göster</a>
                         </div>

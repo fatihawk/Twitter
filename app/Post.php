@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\PostLikes;
 
 class Post extends Model
 {
@@ -18,5 +19,10 @@ class Post extends Model
     {
         return $this->hasOne(User::class,'id','user_id');
     }
+    public function likes()
+    {
+        return $this->hasMany(PostLikes::class);
+    }
+
 
 }
