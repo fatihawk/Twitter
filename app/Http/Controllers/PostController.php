@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\PostLikes;
+use App\Comment;
 
 class PostController extends Controller
 {
+    public function show($id)
+    {
+        $post = Post::with('comments.user', 'comments.')->find($id);
+        return view('home', compact('post'));
+    }
     public function form($id = null)
     {
         Post::find($id);
@@ -40,5 +47,12 @@ class PostController extends Controller
             ]);
         }
         return redirect()->route('home');
+    }
+
+    public function my_likes()
+    {
+        $my_likes = PostLikes::where('user_id', auth()->user()->id)->pluck('post_id');
+        $posts = Post::find($my_likes);
+        return view('my_likes.show',compact('posts'));
     }
 }

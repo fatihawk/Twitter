@@ -48,8 +48,8 @@
                             <a href="#Yer işaretleri">
                                 <h3><i class="fa fa-fw fa-bookmark"></i> Yer işaretleri</h3>
                             </a><br>
-                            <a href="#Listeler">
-                                <h3><i class="fa fa-fw fa-list-alt"></i> Listeler</h3>
+                            <a href="{{ route('my_likes.show') }}">
+                                <h3><i class="fa fa-fw fa-list-alt"></i> Beğendiğim twittler</h3>
                             </a><br>
                             <a href="#">
                                 <h3><i class="fa fa-fw fa-user"></i> Profil</h3>
@@ -78,7 +78,8 @@
                                     </form>
                                 </div>
                                 <img src="/avatar.png" alt="Avatar" class="avatar">
-                                <span><a href="{{ route('profiles.show',[auth()->user()->name]) }}">{{ auth()->user()->name }}</a></span>
+                                <span><a
+                                        href="{{ route('profiles.show',[auth()->user()->name]) }}">{{ auth()->user()->name }}</a></span>
                             </div>
                             @endauth
                             @guest
@@ -133,11 +134,14 @@
                         </div>
                         <br>
                         <div class="kimi_takip_etmeli">
-                            <b>Kimi takip etmeli</b><br><hr>
+                            <b>Kimi takip etmeli</b><br>
+                            <hr>
                             <img src="/avatar.png" alt="Avatar" class="avatar">
-                            <span>Bill Gates</span><br><hr>
+                            <span>Bill Gates</span><br>
+                            <hr>
                             <img src="/avatar.png" alt="Avatar" class="avatar">
-                            <span>Elon Musk</span><br><hr> 
+                            <span>Elon Musk</span><br>
+                            <hr>
                             <a href="#">Daha fazla göster</a>
                         </div>
                     </div>

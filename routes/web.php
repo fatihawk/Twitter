@@ -18,7 +18,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Auth::routes();
-Route::get('profiles/{user}', 'ProfilesController@show')->name('profiles.show');
+
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::post('comment/save','CommentController@save')->name('comment.save');
+    Route::get('profiles/{username}', 'ProfilesController@show')->name('profiles.show');
+    Route::get('comment/{id}/form','CommentController@comment_delete') ->name('comment.delete');
+    Route::get('post/my_likes','PostController@my_likes') ->name('my_likes.show');
+});
+
 Route::group(['middleware'=>'auth', 'prefix' => 'admin'], function() {
     Route::get('post/form', 'PostController@form') ->name('post.form');
     Route::post('post/save', 'PostController@save') ->name('post.save');
