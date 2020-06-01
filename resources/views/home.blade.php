@@ -34,6 +34,7 @@
                         <a class="dropdown-item" href="#">@x adlı kişiyi engelle</a>
                         <a class="dropdown-item" href="#">Tweeti bildir</a>
                         <a class="dropdown-item" href="{{ route('post.delete', [$post->id]) }}">Tweeti sil</a>
+                        <a class="dropdown-item" href="{{ route('post.form.edit',[$post->id])}}">Düzenle</a>
                     </div>
                 </div>
                 <div>

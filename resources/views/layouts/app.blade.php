@@ -136,12 +136,17 @@
                         <div class="kimi_takip_etmeli">
                             <b>Kimi takip etmeli</b><br>
                             <hr>
-                            <img src="/avatar.png" alt="Avatar" class="avatar">
-                            <span>Bill Gates</span><br>
-                            <hr>
-                            <img src="/avatar.png" alt="Avatar" class="avatar">
-                            <span>Elon Musk</span><br>
-                            <hr>
+                            @foreach ($random_user as $random)
+                            <div class="row no-gutters">
+                                <div class="col-2">
+                                    <img src="/avatar.png" alt="Avatar" class="avatar" width="100%">
+                                </div>
+                                <div class="col-10">
+                                    <span><a
+                                            href="{{ route('profiles.show',[$random]) }}">{{ $random }}</a></span>
+                                </div>
+                            </div><br>
+                            @endforeach<hr>
                             <a href="#">Daha fazla göster</a>
                         </div>
                     </div>

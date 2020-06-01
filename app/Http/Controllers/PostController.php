@@ -17,11 +17,12 @@ class PostController extends Controller
     }
     public function form($id = null)
     {
-        Post::find($id);
+        $post = Post::find($id);
         return view('post.form', compact('post'));
     }
     public function save(Request $request)
     {
+
         $data = ['content' => $request->content];
         if ($request->has('id')) {
             auth()->user()->posts()->find($request->id)->update($data);
@@ -53,6 +54,6 @@ class PostController extends Controller
     {
         $my_likes = PostLikes::where('user_id', auth()->user()->id)->pluck('post_id');
         $posts = Post::find($my_likes);
-        return view('my_likes.show',compact('posts'));
+        return view('my_likes.show', compact('posts'));
     }
 }

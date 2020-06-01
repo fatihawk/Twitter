@@ -11,12 +11,14 @@
                     <form action="{{ route('post.save') }}" method="POST">
                         @csrf
                         @if(!empty($post))
-                        <input type="hidden" name="id" value="{{ $post -> id}}">
+                        <input type="hidden" name="id" value="{{ $post->id}}">
                         @endif
-                        <textarea name="content" id="" cols="30" rows="10" class="form-control" placeholder="İçerik">{{ empty($post ->content) ? '': $post->content }}</textarea>
+                        <textarea name="content" id="" cols="3" rows="3" maxlength="240" class="form-control"
+                            placeholder="İçerik">{{ empty($post ->content) ? '': $post->content }}</textarea>
                         <button type="submit" class="btn btn-primary">Gönder</button>
-               </div>
-         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-@endsection
+    @endsection
