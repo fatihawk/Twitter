@@ -51,9 +51,11 @@
                             <a href="{{ route('my_likes.show') }}">
                                 <h3><i class="fa fa-fw fa-list-alt"></i> Beğendiğim twittler</h3>
                             </a><br>
-                            <a href="#">
+                            @auth
+                            <a href="{{ route('profiles.show',[auth()->user()->name]) }}">
                                 <h3><i class="fa fa-fw fa-user"></i> Profil</h3>
                             </a><br>
+                            @endauth
                             <a href="#Daha fazla">
                                 <h3><i class="fa fa-fw fa-ellipsis-h"></i> Daha fazla</h3>
                             </a><br>
@@ -136,18 +138,20 @@
                         <div class="kimi_takip_etmeli">
                             <b>Kimi takip etmeli</b><br>
                             <hr>
+                            @auth
                             @foreach ($random_user as $random)
                             <div class="row no-gutters">
                                 <div class="col-2">
                                     <img src="/avatar.png" alt="Avatar" class="avatar" width="100%">
                                 </div>
                                 <div class="col-10">
-                                    <span><a
-                                            href="{{ route('profiles.show',[$random]) }}">{{ $random }}</a></span>
+                                    <span><a href="{{ route('profiles.show',[$random]) }}">{{ $random }}</a></span>
                                 </div>
                             </div><br>
-                            @endforeach<hr>
-                            <a href="#">Daha fazla göster</a>
+                            @endforeach
+                            @endauth
+                            <hr>
+                            <a href="#" >Daha fazla kişi göster</a>
                         </div>
                     </div>
                 </div>

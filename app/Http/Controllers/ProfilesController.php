@@ -12,10 +12,16 @@ class ProfilesController extends Controller
     public function show($username)
     {
         $user = User::where('name', $username)->first();
-        $posts=Post::where('user_id', $user->id)->get();
-        $comments=Comment::where('user_id',$user->id)->get();
-        //$reply=Comment::where('post_id',$posts->$user->id)->with('content')->get();
-        return view('profiles.show',compact('posts','comments'));
+        $posts = Post::where('user_id', $user->id)->get();
+        $comments = Comment::with('post')->where('user_id', $user->id)->get();
+        return view('profiles.show', compact('posts', 'comments','user'));
     }
-
+    public function update_avatar(Request $request)
+    {
+        if ($request->has('avatar')) {
+            $data['avatar'] = "storage/" . $request->avatar->store('public/uploads');
+        }
+        auth()->user()->update($data);
+        return redirect()->route('profiles.show');
+    }
 }

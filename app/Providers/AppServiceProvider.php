@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\User;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,8 +25,12 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {  
-        $random_user=User::all()->pluck('name')->random(2);
-        View::share('random_user', $random_user);
+    {
+        if (Schema::hasTable('users')) {
+            $random_user = User::pluck('name')->take(2);
+            //$more_random_user=User::all()->pluck('name')->random(5);
+            View::share('random_user', $random_user);
+            //View::share('more_random_user',$more_random_user);
+        }
     }
 }
