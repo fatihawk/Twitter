@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if (Schema::hasTable('users')) {
-            $random_user = User::pluck('name')->take(2);
+            $random_user = User::take(2)->get();
             //$more_random_user=User::all()->pluck('name')->random(5);
             View::share('random_user', $random_user);
             //View::share('more_random_user',$more_random_user);

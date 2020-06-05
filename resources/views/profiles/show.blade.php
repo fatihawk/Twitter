@@ -5,7 +5,7 @@
     <div class="card-header">
         <img src="{{ asset($user->avatar) }}" width="100%" alt=""
             style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-        <form action="{{ route('profiles.save') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('profiles.save', [$user->name]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label>Profil fotoğrafı seçin</label>
             <input type="file" name="avatar" id="">
@@ -23,7 +23,7 @@
             @foreach ($posts as $post)
             <div class="row no-gutters">
                 <div class="col-1">
-                    <img src="/avatar.png" alt="Avatar" class="avatar" width="100%">
+                    <img src="{{ asset($user->avatar) }}" width="100%" alt="" style="border-radius: 50%">
                 </div>
                 <div class="col-11">
                     <div>
@@ -37,7 +37,7 @@
                     @foreach ($post->comments as $comment)
                     <div class="row no-gutters">
                         <div class="col-1">
-                            <img src="/avatar.png" alt="Avatar" class="avatar" width="100%">
+                            <img src="{{ asset($user->avatar) }}" width="100%" alt="" style="border-radius: 50%">
                         </div>
                         <div class="col-11">
                             <div>
@@ -64,7 +64,7 @@
                 @foreach ($comments as $comment)
                 <div class="row no-gutters">
                     <div class="col-1">
-                        <img src="/avatar.png" alt="Avatar" class="avatar" width="100%">
+                        <img src="{{ asset($user->avatar) }}" width="100%" alt="" style="border-radius: 50%">
                     </div>
                     <div class="col-11">
                         <div>
@@ -79,7 +79,7 @@
                 <hr>
                 <div class="row no-gutters">
                     <div class="col-1">
-                        <img src="/avatar.png" alt="Avatar" class="avatar" width="100%">
+                        <img src="{{ asset($user->avatar) }}" width="100%" alt="" style="border-radius: 50%">
                     </div>
                     <div class="col-11">
                         <div>

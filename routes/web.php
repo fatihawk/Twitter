@@ -23,7 +23,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::post('comment/save', 'CommentController@save')->name('comment.save');
     Route::get('profiles/{username}', 'ProfilesController@show')->name('profiles.show');
-    Route::post('profiles','ProfilesController@update_avatar')->name('profiles.save');
+    Route::post('profiles/{username}','ProfilesController@update_avatar')->name('profiles.save');
     Route::get('comment/{id}/form', 'CommentController@comment_delete')->name('comment.delete');
     Route::get('post/my_likes', 'PostController@my_likes')->name('my_likes.show');
 });

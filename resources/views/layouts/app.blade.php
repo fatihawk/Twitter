@@ -63,7 +63,6 @@
                                 <h3>Tweetle</h3>
                             </button><br><br>
                             @auth
-                            <div class="user">
                                 <button type="button"
                                     class="btn btn-primary dropdown-toggle dropdown dropleft float-right"
                                     data-toggle="dropdown"></button>
@@ -79,10 +78,9 @@
                                         @csrf
                                     </form>
                                 </div>
-                                <img src="/avatar.png" alt="Avatar" class="avatar">
+                                <img src="{{ asset(auth()->user()->avatar) }}" width="40%" alt="" style="border-radius: 50%">
                                 <span><a
                                         href="{{ route('profiles.show',[auth()->user()->name]) }}">{{ auth()->user()->name }}</a></span>
-                            </div>
                             @endauth
                             @guest
                             <a href="{{ route('login') }}">
@@ -142,10 +140,10 @@
                             @foreach ($random_user as $random)
                             <div class="row no-gutters">
                                 <div class="col-2">
-                                    <img src="/avatar.png" alt="Avatar" class="avatar" width="100%">
+                                    <img src="{{ asset($random->avatar) }}" width="100%" alt="" style="border-radius: 50%">
                                 </div>
                                 <div class="col-10">
-                                    <span><a href="{{ route('profiles.show',[$random]) }}">{{ $random }}</a></span>
+                                    <span><a href="{{ route('profiles.show',[$random]) }}">{{ $random->name }}</a></span>
                                 </div>
                             </div><br>
                             @endforeach

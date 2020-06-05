@@ -18,9 +18,11 @@
     <div class="card-body">
         @foreach ($posts as $post)
         <div class="row no-gutters">
+            @auth
             <div class="col-1">
-                <img src="avatar.png" alt="Avatar" class="avatar" width="100%">
+                <img src="{{ asset(auth()->user()->avatar) }}" width="100%" alt="" style="border-radius: 50%">
             </div>
+            @endauth
             <div class="col-11">
                 <div class="dropdown">
                     <button type="button" class="btn btn-primary dropdown-toggle dropdown dropleft float-right"
@@ -75,7 +77,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="avatar.png" alt="Avatar" class="avatar" width="100%">
+                    <img src="{{ asset(auth()->user()->avatar) }}" width="100%" alt="" style="border-radius: 50%">
                     <span>{{ $comment->user->name }} @...
                         {{ $comment->created_at->diffForHumans(now(), ['short' => true]) }}</span><br>
                 </div>
