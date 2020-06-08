@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Image;
 use Illuminate\Http\Request;
 
 

@@ -45,8 +45,8 @@
                             <a href="#Mesajlar">
                                 <h3><i class="fa fa-fw fa-envelope"></i> Mesajlar</h3>
                             </a><br>
-                            <a href="#Yer işaretleri">
-                                <h3><i class="fa fa-fw fa-bookmark"></i> Yer işaretleri</h3>
+                            <a href="{{ route('my_images.show') }}">
+                                <h3><i class="fa fa-image"></i> Görsellerim </h3>
                             </a><br>
                             <a href="{{ route('my_likes.show') }}">
                                 <h3><i class="fa fa-fw fa-list-alt"></i> Beğendiğim twittler</h3>
@@ -63,24 +63,24 @@
                                 <h3>Tweetle</h3>
                             </button><br><br>
                             @auth
-                                <button type="button"
-                                    class="btn btn-primary dropdown-toggle dropdown dropleft float-right"
-                                    data-toggle="dropdown"></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('login') }}"> Var olan kişi ekle</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown dropleft float-right"
+                                data-toggle="dropdown"></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('login') }}"> Var olan kişi ekle</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="
                                 event.preventDefault(); 
                                 document.getElementById('logout-form').submit();">
-                                        {{ auth()->user()->name }} hesabından çıkış yap
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                                <img src="{{ asset(auth()->user()->avatar) }}" width="40%" alt="" style="border-radius: 50%">
-                                <span><a
-                                        href="{{ route('profiles.show',[auth()->user()->name]) }}">{{ auth()->user()->name }}</a></span>
+                                    {{ auth()->user()->name }} hesabından çıkış yap
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                            <img src="{{ asset(auth()->user()->avatar) }}" width="40%" alt=""
+                                style="border-radius: 50%">
+                            <span><a
+                                    href="{{ route('profiles.show',[auth()->user()->name]) }}">{{ auth()->user()->name }}</a></span>
                             @endauth
                             @guest
                             <a href="{{ route('login') }}">
@@ -99,9 +99,10 @@
                 <div class="col-3 ">
                     <div class="sticky-top">
                         <div class="search-container">
-                            <form action="/action_page.php">
-                                <button class="search" type="submit"><i class="fa fa-search"></i></button>
-                                <input class="ara" type="text" placeholder="Search.." name="search">
+                            <form action="{{ route('search') }}" method="POST">
+                                @csrf
+                                <input type="text" name="query" />
+                                <input type="submit" class="btn btn-sm btn-primary" value="Search" />
                             </form>
                         </div>
                         <div class="Tags">
@@ -140,16 +141,18 @@
                             @foreach ($random_user as $random)
                             <div class="row no-gutters">
                                 <div class="col-2">
-                                    <img src="{{ asset($random->avatar) }}" width="100%" alt="" style="border-radius: 50%">
+                                    <img src="{{ asset($random->avatar) }}" width="100%" alt=""
+                                        style="border-radius: 50%">
                                 </div>
                                 <div class="col-10">
-                                    <span><a href="{{ route('profiles.show',[$random]) }}">{{ $random->name }}</a></span>
+                                    <span><a
+                                            href="{{ route('profiles.show',[$random]) }}">{{ $random->name }}</a></span>
                                 </div>
                             </div><br>
                             @endforeach
                             @endauth
                             <hr>
-                            <a href="#" >Daha fazla kişi göster</a>
+                            <a href="#">Daha fazla kişi göster</a>
                         </div>
                     </div>
                 </div>

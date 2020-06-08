@@ -5,14 +5,18 @@
         <h3><a href="{{ route('home') }}">Anasayfa</a></h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('post.save') }}" method="POST">
+        <form action="{{ route('post.save') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @auth
             @if(!empty($post))
             <input type="hidden" name="id" value="{{ $post -> id}}">
             @endif
             <textarea name="content" id="" cols="3" rows="3" maxlength="240" class="form-control"
                 placeholder="İçerik">{{ empty($post ->content) ? '': $post->content }}</textarea>
+            <input type="file" name="image" id="" class="image">
+            <input type="file" name="video" id="" class="video">
             <button type="submit" class="btn btn-primary gonder">Tweetle</button>
+            @endauth
         </form>
     </div>
     <div class="card-body">
@@ -44,6 +48,11 @@
                         {{ $post->created_at->diffForHumans(now(), ['short' => true]) }}</span><br>
                 </div>
                 <p class="content">{{ $post->content }}</p>
+                <img src="{{ asset($post->image) }}" width="50%" alt=""><br><br>
+                <video width="320" height="240" controls>
+                    <source src="{{ asset($post->video) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video> <br><br><br><br>
                 <a href="{{ route('home') }}"><i class="fa fa-home"></i></a>
                 <button class="btn"><i class="fa fa-retweet"></i></button>
                 @auth
@@ -58,7 +67,7 @@
                 <h5>
                     <p>Yorum</p>
                 </h5>
-                <form action="{{ route('comment.save')  }}" method="POST">
+                <form action="{{ route('comment.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="post_id" value="{{ $post->id }}">
                     <textarea name="text" id="" cols="3" rows="3" maxlength="240" class="form-control"></textarea>
@@ -77,7 +86,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="{{ asset(auth()->user()->avatar) }}" width="100%" alt="" style="border-radius: 50%">
+                    <img src="{{ asset(auth()->user()->avatar) }}" width="10%" alt="" style="border-radius:50%">
                     <span>{{ $comment->user->name }} @...
                         {{ $comment->created_at->diffForHumans(now(), ['short' => true]) }}</span><br>
                 </div>

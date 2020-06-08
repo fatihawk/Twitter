@@ -25,7 +25,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('profiles/{username}', 'ProfilesController@show')->name('profiles.show');
     Route::post('profiles/{username}','ProfilesController@update_avatar')->name('profiles.save');
     Route::get('comment/{id}/form', 'CommentController@comment_delete')->name('comment.delete');
+    Route::get('post/my_images', 'PostController@my_images')->name('my_images.show');
     Route::get('post/my_likes', 'PostController@my_likes')->name('my_likes.show');
+    Route::post('/search', 'PostController@search')->name('search');
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {

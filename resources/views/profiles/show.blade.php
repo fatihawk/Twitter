@@ -30,7 +30,12 @@
                         <span>{{ $post->user->name }} @...
                             {{ $post->created_at->diffForHumans(now(), ['short' => true]) }}</span><br>
                     </div>
-                    <p class="content">{{ $post->content }}</p><br><br>
+                    <p class="content">{{ $post->content }}</p>
+                    <img src="{{ asset($post->image) }}" width="50%" alt=""><br><br>
+                    <video width="320" height="240" controls>
+                        <source src="{{ asset($post->video) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video><br><br>
                     <h3>
                         <p>Yorumlar</p>
                     </h3><br><br>
@@ -72,10 +77,16 @@
                                 {{ $comment->post->created_at->diffForHumans(now(), ['short' => true]) }}</span><br>
                         </div>
                         <p class="content">{{ $comment->post->content }}</p><br><br>
-                        <hr><br><br>
+                        <img src="{{ asset($post->image) }}" width="50%" alt=""><br><br>
+                        <video width="320" height="240" controls>
+                            <source src="{{ asset($post->video) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video><br><br><hr>
+                        <h3>
+                            <p>Yorumlar</p>
+                        </h3><br><br>
                     </div>
                 </div>
-                <hr>
                 <hr>
                 <div class="row no-gutters">
                     <div class="col-1">

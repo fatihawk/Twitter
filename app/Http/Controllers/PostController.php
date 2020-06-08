@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\PostLikes;
 use App\Comment;
+use App\MyImages;
+use Spatie\Searchable\Search;
 
 class PostController extends Controller
 {
@@ -24,6 +26,12 @@ class PostController extends Controller
     {
 
         $data = ['content' => $request->content];
+        if ($request->has('image')) {
+            $data['image'] = "storage/" . $request->image->store('public/images');
+        }
+        if ($request->has('video')) {
+            $data['video'] = "storage/" . $request->video->store('public/videos');
+        }
         if ($request->has('id')) {
             auth()->user()->posts()->find($request->id)->update($data);
         } else {
@@ -56,4 +64,20 @@ class PostController extends Controller
         $posts = Post::find($my_likes);
         return view('my_likes.show', compact('posts'));
     }
+    public function my_images()
+    {
+        $my_images = Post::where('user_id', auth()->user()->id)->get();
+        return view('my_images.show', compact('my_images'));
+    }
+
+    public function search(Request $request)
+    {
+        $searchResults = (new Search())
+            ->registerModel(Post::class, 'content')
+            ->perform($request->input('query'));
+
+        return view('search', compact('searchResults'));
+    }
+
+
 }

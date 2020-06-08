@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Post;
 use App\PostLikes;
 use App\Comment;
+use App\MyImages;
 
 class User extends Authenticatable
 {
