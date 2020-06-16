@@ -4,16 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Not extends Model
+class Obs extends Model
 {
-    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'not','ad', 'type'
+        'ad','ders', 'vize','final','not','durum'
      ];
      public function ogrencilers()
      {
@@ -23,5 +22,8 @@ class Not extends Model
      {
          return $this->hasMany(Dersler::class);
      }
-
+     public function nots()
+     {
+         return $this->hasMany(Dersler::class);
+     }
 }

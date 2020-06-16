@@ -17,3 +17,23 @@
     </div>
 </div>
 @endif
+
+
+<div class="card-body">
+    @foreach ($dersler as $derslers) {
+    @foreach ($notlar as $notlars) {
+    <table style="width:100%">
+        <tr>
+            <th>Ders</th>
+            <th>Vize</th>
+            <th>Final</th>
+        </tr>
+        <tr>
+            <td>{{ $derslers->name }}</td>
+        </tr>
+    </table>
+    }
+    }
+    @endforeach
+    @endforeach
+</div>

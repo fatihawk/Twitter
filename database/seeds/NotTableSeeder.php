@@ -19,7 +19,8 @@ class NotTableSeeder extends Seeder
         $dersler = Dersler::get();
         foreach ($ogrenciler as $ogrenci) {
             foreach ($dersler as $ders) {
-                Not::create(['ogr_id' => $ogrenci->id, 'ders_id' => $ders->id, 'not' => rand(1, 100)]);
+                Not::create(['ogr_id' => $ogrenci->id, 'type' => 'vize', 'ders_id' => $ders->id, 'not' => rand(1, 100)]);
+                Not::create(['ogr_id' => $ogrenci->id, 'type' => 'final', 'ders_id' => $ders->id, 'not' => rand(1, 100)]);
             }
         }
     }

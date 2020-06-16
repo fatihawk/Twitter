@@ -10887,15 +10887,15 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: #15202B !important;
+  background-color: #15202b !important;
 }
 
 .card {
-  background-color: #15202B !important;
+  background-color: #15202b !important;
 }
 
 .form-control {
-  background-color: #15202B !important;
+  background-color: #15202b !important;
 }
 
 p {
@@ -10906,8 +10906,8 @@ p {
 .dropdown-toggle {
   padding: 0 !important;
   border-radius: 0px;
-  background-color: #15202B;
-  border-color: #15202B;
+  background-color: #15202b;
+  border-color: #15202b;
   font-size: 1.5rem;
 }
 
@@ -10950,7 +10950,7 @@ hr {
 }
 
 .ara {
-  background-color: #15202B;
+  background-color: #15202b;
   padding: 0;
   border: 0;
 }
@@ -11024,5 +11024,16 @@ span {
 .video {
   margin-top: 10px;
   color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
 }
 

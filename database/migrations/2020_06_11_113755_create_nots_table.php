@@ -18,6 +18,7 @@ class CreateNotsTable extends Migration
             $table->unsignedBigInteger('ogr_id');
             $table->foreign('ogr_id')->references('id')->on('ogrencilers');
             $table->unsignedBigInteger('ders_id');
+            $table->string('type');
             $table->foreign('ders_id')->references('id')->on('derslers');
             $table->integer('not');
             $table->timestamps();

@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('post/my_images', 'PostController@my_images')->name('my_images.show');
     Route::get('post/my_likes', 'PostController@my_likes')->name('my_likes.show');
     Route::post('/search', 'PostController@search')->name('search');
+    Route::get('/obs', 'OgrenciController@obs')->name('obs.show');
+
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
