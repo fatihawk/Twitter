@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Dersler;
 use App\Ogrenciler;
-use App\Not;
+use App\Devam;
 use Illuminate\Http\Request;
 
 class OgrenciController extends Controller
 {
     public function obs()
     {
-        $ogrenciler = Ogrenciler::first();
+        $ogrenciler = Ogrenciler::paginate(1);
         $dersler = Dersler::get();
-        return view('obs.show', compact('ogrenciler','dersler'));
+        $devamsizlik = Devam::get();
+        return view('obs.show', compact('ogrenciler','dersler','devamsizlik'));
     }
 }

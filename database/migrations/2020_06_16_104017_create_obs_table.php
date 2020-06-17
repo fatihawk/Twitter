@@ -21,6 +21,7 @@ class CreateObsTable extends Migration
             $table->integer('final')->nullable();
             $table->integer('not')->nullable();
             $table->text('durum')->nullable();
+            $table->integer('devamsizlik')->nullable();
             $table->timestamps();
         });
     }

@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OgrenciTableSeeder::class);
         $this->call(DerslerTableSeeder::class);
         $this->call(NotTableSeeder::class);
+        $this->call(DevamTableSeeder::class);
+
     }
 }

@@ -13,7 +13,7 @@ class Not extends Model
      * @var array
      */
     protected $fillable = [
-        'not','ad', 'type'
+        'not', 'type'
      ];
      public function ogrencilers()
      {

@@ -1,33 +1,39 @@
-<div class="card">
-    <div class="card-header">
-        <h3>
-            <p>{{ $ogrenciler->ad }}</p>
-        </h3><br><br>
-    </div>
-</div>
 <div class="card-body">
     <div style="overflow-x:auto;">
-        <table>
-            <tr>
-                <th>Ders</th>
-                <th>Vize</th>
-                <th>Final</th>
-                <th>Not</th>
-                <th>Durum</th>
+        <table> 
+            <tr><th>Öğrenci&nbsp;&nbsp;&nbsp;</th>
+                <th>Ders&nbsp;&nbsp;&nbsp;</th>
+                <th>Vize&nbsp;&nbsp;&nbsp;</th>
+                <th>Final&nbsp;&nbsp;&nbsp;</th>
+                <th>Not&nbsp;&nbsp;&nbsp;</th>
+                <th>Devamsızlık&nbsp;&nbsp;&nbsp;</th>
+                <th>Durum&nbsp;&nbsp;&nbsp;</th>
             </tr>
             @foreach ($dersler as $ders)
-                <tr>
-                    <td>{{ $ders->name }}</td>
-                    <td>{{ $vize= \App\Not::where('ogr_id', $ogrenciler->id)->where('ders_id', $ders->id)->where('type','vize')->first()->not }}</td>
-                    <td>{{ $final= \App\Not::where('ogr_id', $ogrenciler->id)->where('ders_id', $ders->id)->where('type','final')->first()->not }}</td>
-                    <td>{{ $ort= $vize*0.4 + $final*0.6 }}</td>
-                    <td> @if ( $ort > 60 )
-                        <p>{{ $ort }} ile gectiniz </p>
-                    @else
-                        <p>{{ $ort }} ile kaldiniz </p>
-                    @endif </td>
-                </tr>
+            @foreach ($ogrenciler as $ogrenci)
+            <tr>
+                <td>{{ $ogrenci->ad }}</td>
+                <td>{{ $ders->name }}</td>
+                <td>{{ $vize= \App\Not::where('ogr_id', $ogrenci->id)->where('ders_id', $ders->id)->where('type','vize')->first()->not }}
+                </td>
+                <td>{{ $final= \App\Not::where('ogr_id', $ogrenci->id)->where('ders_id', $ders->id)->where('type','final')->first()->not }}
+                </td>
+                <td>{{ $ort= $vize*0.4 + $final*0.6 }}</td>
+                <td>{{ $devam= \App\Devam::where('ogr_id', $ogrenci->id)->where('ders_id', $ders->id)->first()->devamsizlik }}
+                    gün</td>
+                <td> @if ( $ort < 100 && $ort>= 85 && $devam <= 20 ) <p>AA </p>
+                            @elseif($ort < 85 && $ort>= 70 && $devam <= 20 ) <p>BB </p>
+                                    @elseif ( $ort < 70 && $ort>= 55 && $devam <= 20 ) <p>CC </p>
+                                            @elseif($ort < 55 && $ort>= 40 && $devam <= 20 ) <p>DD </p>
+                                                    @elseif ( $ort < 40 && $devam <=20 ) <p>FF </p>
+                                                        @else
+                                                        <p>FG </p>
+                                                        @endif</td>
+
+            </tr>
             @endforeach
-        </table>
+            @endforeach
+        </table><br><br>
+        {{ $ogrenciler->links() }}
     </div>
 </div>
