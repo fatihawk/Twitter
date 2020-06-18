@@ -25,3 +25,9 @@
     </div>
 </div>
 @endsection
+
+
+<form action="{{ route('job.completed'), [$jobs->id]}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <button type="submit" class="btn btn-primary gonder ">Tamamlandı</button>
+</form>

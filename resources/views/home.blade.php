@@ -9,7 +9,7 @@
             @csrf
             @auth
             @if(!empty($post))
-            <input type="hidden" name="id" value="{{ $post -> id}}">
+            <input type="hidden" name="id" value="{{ $post ->id}}">
             @endif
             <textarea name="content" id="" cols="3" rows="3" maxlength="240" class="form-control"
                 placeholder="İçerik">{{ empty($post ->content) ? '': $post->content }}</textarea>

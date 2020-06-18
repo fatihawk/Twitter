@@ -23,12 +23,20 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::post('comment/save', 'CommentController@save')->name('comment.save');
     Route::get('profiles/{username}', 'ProfilesController@show')->name('profiles.show');
-    Route::post('profiles/{username}','ProfilesController@update_avatar')->name('profiles.save');
+    Route::post('profiles/{username}', 'ProfilesController@update_avatar')->name('profiles.save');
     Route::get('comment/{id}/form', 'CommentController@comment_delete')->name('comment.delete');
     Route::get('post/my_images', 'PostController@my_images')->name('my_images.show');
     Route::get('post/my_likes', 'PostController@my_likes')->name('my_likes.show');
     Route::post('/search', 'PostController@search')->name('search');
     Route::get('/obs', 'OgrenciController@obs')->name('obs.show');
+    Route::get('/task', 'TaskController@form')->name('task.show');
+    Route::post('/task/save', 'TaskController@save')->name('task.save');
+    Route::get("/{id}/complete", "TaskController@complete");
+    Route::get("/{id}/delete", "TaskController@destroy");
+    Route::get('/job', 'JobController@form')->name('job.show');
+    Route::post('/job/save', 'JobController@save')->name('job.save');
+    Route::post('/done/save', 'DoneController@save')->name('done.save');
+    Route::get('/done/{id}/show', 'DoneController@show')->name('job.show');
 
 });
 
