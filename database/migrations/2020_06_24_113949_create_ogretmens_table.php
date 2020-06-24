@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDonesTable extends Migration
+class CreateOgretmensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateDonesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dones', function (Blueprint $table) {
+        Schema::create('ogretmens', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('done_id');
-            $table->foreign('done_id')->references('id')->on('jobs');
-            $table->text('text');
-            $table->foreign('text')->references('job')->on('jobs');
+            $table->text('not');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateDonesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dones');
+        Schema::dropIfExists('ogretmens');
     }
 }

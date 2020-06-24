@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Ogretmen extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,6 +12,10 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'task','tag',
+        'not'
     ];
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

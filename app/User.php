@@ -9,6 +9,7 @@ use App\Post;
 use App\PostLikes;
 use App\Comment;
 use App\MyImages;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -20,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','avatar'
+        'name', 'email', 'password', 'duplicate','avatar'
     ];
 
     /**
@@ -45,6 +46,50 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public $appends = [
+        'prefix',
+    ];
+
+    /**
+     * @param role role slug 
+     */
+    public function hasRole($roles)
+    {
+        $userRoles = $this->roles->pluck('slug');
+        if(is_string($roles)){
+            return $userRoles->contains($roles);
+        }
+        foreach($roles as $role){
+            if($userRoles->contains($role)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static function ofRole($roles)
+    {
+        if(is_string($roles)){
+            $roles = [$roles];
+        }
+        return User::whereHas('roles', function ($query) use($roles) {
+            $query->whereIn('slug', $roles);
+        });
+    }
+
+    public function getPrefixAttribute()
+    {
+        return $this->roles->first()->slug;
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->name . ' ' . $this->surname;
+    }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles');
+    }
 
     public function posts()
     {

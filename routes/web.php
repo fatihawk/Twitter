@@ -37,7 +37,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/job/save', 'JobController@save')->name('job.save');
     Route::post('/done/save', 'DoneController@save')->name('done.save');
     Route::get('/done/{id}/show', 'DoneController@show')->name('job.show');
-
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
@@ -46,4 +45,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('post/{id}/delete', 'PostController@delete')->name('post.delete');
     Route::get('post/{id}/like', 'PostController@like')->name('post.like');
     Route::get('post/{id}/form', 'PostController@form')->name('post.form.edit');
+});
+
+Route::middleware(['role:ogretmen'])->prefix('ogretmen')->group(function () {
+    Route::get('/form', 'OgretmenController@form')->name('ogretmen.form');
+    Route::post('/save', 'OgretmenController@save')->name('ogretmen.save');
+});
+
+Route::middleware(['role:ogrenci'])->prefix('ogrenci')->group(function () {
+    Route::get('/show', 'OgrencilerController@show')->name('ogrenci.show');
 });
