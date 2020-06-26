@@ -55,3 +55,19 @@ Route::middleware(['role:ogretmen'])->prefix('ogretmen')->group(function () {
 Route::middleware(['role:ogrenci'])->prefix('ogrenci')->group(function () {
     Route::get('/show', 'OgrencilerController@show')->name('ogrenci.show');
 });
+
+Route::middleware(['role:ogrenci2'])->prefix('ogrenci2')->group(function () {
+    Route::get('/show', 'Ogrenci2Controller@show')->name('ogrenci2.show');
+});
+
+Route::middleware(['role:ogrenci3'])->prefix('ogrenci3')->group(function () {
+    Route::get('/show', 'Ogrenci3Controller@show')->name('ogrenci3.show');
+});
+
+Route::middleware(['role:ogrenci4'])->prefix('ogrenci4')->group(function () {
+    Route::get('/show', 'Ogrenci4Controller@show')->name('ogrenci4.show');
+});
+
+Route::middleware(['role:ogrenci5'])->prefix('ogrenci5')->group(function () {
+    Route::get('/show', 'Ogrenci5Controller@show')->name('ogrenci5.show');
+});

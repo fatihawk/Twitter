@@ -3,20 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 
-class Ogrenci extends Model
+class Adres extends Model
 {
-    /**
+     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'not'
+        'Ad', 'Adres'
      ];
-     public function user()
+     public function users()
      {
          return $this->hasOne(User::class);
+     }
+     public function siparis()
+     {
+         return $this->hasMany(Siparis::class);
      }
 }

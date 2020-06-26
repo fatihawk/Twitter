@@ -18,5 +18,11 @@ class DatabaseSeeder extends Seeder
         $this->call(DevamTableSeeder::class);
         $this->call(RolesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(AdresTableSeeder::class);
+        $this->call(SiparisTableSeeder::class);
+        $this->call(UrunTableSeeder::class);
+        $this->call(UrunGrupTableSeeder::class);
+        $this->call(MarkaTableSeeder::class);
+        $this->call(OdemeTableSeeder::class);
     }
 }

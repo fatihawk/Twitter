@@ -21,6 +21,22 @@ class RolesTableSeeder extends Seeder
                 'name' => 'ogrenci',
                 'slug' => 'ogrenci'
             ],
+            [   
+                'name' => 'ogrenci2',
+                'slug' => 'ogrenci2'
+            ],
+            [   
+                'name' => 'ogrenci3',
+                'slug' => 'ogrenci3'
+            ],
+            [   
+                'name' => 'ogrenci4',
+                'slug' => 'ogrenci4'
+            ],
+            [   
+                'name' => 'ogrenci5',
+                'slug' => 'ogrenci5'
+            ],
         ]);
     }
 }
