@@ -1,6 +1,7 @@
 <?php
 
 use App\Odeme;
+use App\SiparisDetay;
 use Illuminate\Database\Seeder;
 
 class OdemeTableSeeder extends Seeder
@@ -12,10 +13,12 @@ class OdemeTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create('tr_TR', 'Base', 'Internet','DateTime');
-        $siparis = Siparis::get();
+        $faker = Faker\Factory::create('tr_TR', 'Base', 'Internet','DateTime','Payment');
+        $siparis = SiparisDetay::get();
             foreach ($siparis as $musteri) {
-                    Odeme::create(['siparis_id' => $musteri->id, 'odeme_tur'=>$musteri->Adres, 'Tutar' => $faker->dateTimeThisYear($max = 'now', $timezone = null),]);
+                    Odeme::create(['siparis_id' => $musteri->siparis_id, 'odeme_tur'=>$faker->creditCardType, 'Tutar' => $musteri->miktar * $musteri->fiyat]);
             }
     }
 }
+
+

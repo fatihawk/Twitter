@@ -24,5 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UrunGrupTableSeeder::class);
         $this->call(MarkaTableSeeder::class);
         $this->call(OdemeTableSeeder::class);
+        $this->call(SiparisDetayTableSeeder::class);
+        $this->call(RandomTableSeeder::class);
+        
     }
 }

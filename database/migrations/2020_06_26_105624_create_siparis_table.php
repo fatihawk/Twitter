@@ -16,7 +16,7 @@ class CreateSiparisTable extends Migration
         Schema::create('siparis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('musteri_id');
-            $table->foreign('musteri_id')->references('musteri_id')->on('adres');
+            $table->foreign('musteri_id')->references('id')->on('adres');
             $table->text('Tarih');
             $table->text('Fatura_adres');
             $table->timestamps();
