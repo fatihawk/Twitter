@@ -18,7 +18,7 @@ class CreateAdresTable extends Migration
             $table->unsignedBigInteger('musteri_id');
             $table->foreign('musteri_id')->references('id')->on('users');
             $table->text('Ad');
-            $table->text('Adres');
+            $table->text('Adres')->nullable();
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ class Odeme extends Model
      * @var array
      */
     protected $fillable = [
-        'tutar'
+        'cardNo','user_id'
     ];
     public function siparis()
     {

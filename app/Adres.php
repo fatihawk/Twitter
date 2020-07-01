@@ -12,7 +12,7 @@ class Adres extends Model
      * @var array
      */
     protected $fillable = [
-        'Ad', 'Adres'
+        'Ad', 'Adres','musteri_id'
      ];
      public function users()
      {

@@ -37,6 +37,22 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/job/save', 'JobController@save')->name('job.save');
     Route::post('/done/save', 'DoneController@save')->name('done.save');
     Route::get('/done/{id}/show', 'DoneController@show')->name('job.show');
+    Route::get('/musteri/form', 'AdresController@form')->name('musteri.form');
+    Route::post('/musteri/save', 'AdresController@save')->name('musteri.save');
+    Route::get('/siparis/form', 'SiparisController@form')->name('siparis.form');
+    Route::post('/siparis/save', 'SiparisController@save')->name('siparis.save');
+    Route::post('/odeme/save', 'OdemeController@save')->name('odeme.save');
+    Route::get('/siparis/detay', 'SiparisController@show')->name('siparis.show');
+    Route::get('/siparis/elektronik', 'ElektronikController@form')->name('elektronik.form');
+    Route::get('/siparis/mutfak', 'MutfakController@form')->name('mutfak.form');
+    Route::get('/siparis/temizlik', 'TemizlikController@form')->name('temizlik.form');
+    Route::get('/siparis/kirtasiye', 'KirtasiyeController@form')->name('kirtasiye.form');
+    Route::get('/siparis/spor', 'SporController@form')->name('spor.form');
+    Route::get('/siparis/telefon', 'TelefonController@form')->name('telefon.form');
+    Route::get('/siparis/kitap', 'KitapController@form')->name('kitap.form');
+    Route::get('/siparis/giyim', 'GiyimController@form')->name('giyim.form');
+    Route::get('/siparis/kozmetik', 'KozmetikController@form')->name('kozmetik.form');
+    Route::get('/siparis/muzik', 'MuzikController@form')->name('muzik.form');
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {

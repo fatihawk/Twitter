@@ -12,7 +12,7 @@ class Siparis extends Model
      * @var array
      */
     protected $fillable = [
-        'Tarih', 'Fatura_adres'
+        'order', 'price','user_id','urun_id','marka_id'
      ];
      public function users()
      {

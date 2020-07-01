@@ -15,10 +15,12 @@ class CreateSiparisTable extends Migration
     {
         Schema::create('siparis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('musteri_id');
-            $table->foreign('musteri_id')->references('id')->on('adres');
-            $table->text('Tarih');
-            $table->text('Fatura_adres');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->text('order');
+            $table->integer('urun_id');
+            $table->integer('marka_id');
+            $table->integer('price');
             $table->timestamps();
         });
     }

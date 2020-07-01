@@ -15,10 +15,9 @@ class CreateOdemesTable extends Migration
     {
         Schema::create('odemes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('siparis_id');
-            $table->foreign('siparis_id')->references('siparis_id')->on('siparis_detays');
-            $table->text('odeme_tur');
-            $table->integer('tutar');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('cardNo');
             $table->timestamps();
         });
     }
