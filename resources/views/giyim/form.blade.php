@@ -16,6 +16,12 @@
             <a href="{{ route('kozmetik.form') }}">Kozmetik</a>
             <a href="{{ route('muzik.form') }}">Müzik</a>
             <a href="{{ route('musteri.form') }}">Profil</a>
+            @auth
+            <a href="{{ route('urunlerim.form') }}">Ürünlerim</a>    
+            @endauth
+            @if (Auth::check() && Auth::user()->email == "admin@ondokuzon.com")
+            <a href="{{ route('urun.form') }}">Ürün Girişi yap</a>
+            @endif
         </div><br><br>
     </div>
     <div class="card-body">

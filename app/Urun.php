@@ -12,7 +12,7 @@ class Urun extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name','marka_id','group_id','fiyat','stok'
      ];
      
      public function markas()

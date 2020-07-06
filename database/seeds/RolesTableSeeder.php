@@ -37,6 +37,10 @@ class RolesTableSeeder extends Seeder
                 'name' => 'ogrenci5',
                 'slug' => 'ogrenci5'
             ],
+            [   
+                'name' => 'Admin',
+                'slug' => 'admin'
+            ],
         ]);
     }
 }

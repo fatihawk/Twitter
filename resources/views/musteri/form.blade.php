@@ -15,6 +15,12 @@
             <a href="{{ route('kozmetik.form') }}"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Kozmetik</a>
             <a href="{{ route('muzik.form') }}"><i class="fa fa-music" aria-hidden="true"></i>Müzik</a>
             <a href="{{ route('musteri.form') }}"><i class="fa fa-user" aria-hidden="true"></i>Profil</a>
+            @auth
+            <a href="{{ route('urunlerim.form') }}">Ürünlerim</a>    
+            @endauth
+            @if (Auth::check() && Auth::user()->email == "admin@ondokuzon.com")
+            <a href="{{ route('urun.form') }}">Ürün Girişi yap</a>
+            @endif
         </div><br><br>
     </div>
     <div class="card-body">

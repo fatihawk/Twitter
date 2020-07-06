@@ -6,7 +6,7 @@
     <div class="card-header">
         <div class="navbar">
             <a href="{{ route('elektronik.form') }}" class="active">Elektronik</a>
-            <a href="{{ route('mutfak.form') }}">Mutfak</a>
+            <a href="{{ route('mutfak.form') }}" >Mutfak</a>
             <a href="{{ route('temizlik.form') }}">Temizlik</a>
             <a href="{{ route('kirtasiye.form') }}">Kırtasiye</a>
             <a href="{{ route('spor.form') }}">Spor</a>
@@ -25,24 +25,14 @@
         </div><br><br>
     </div>
     <div class="card-body">
-        <span>Elektronik</span><br>
+        <span>Ürünlerim</span><br>
         <hr>
-        @foreach ($elektronik as $elektroniks)
+        @foreach ($my_order as $my_orders)
         <div>
-            <form action="{{ route('siparis.save') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <span name="order" id="">Ürün : {{ $elektroniks->name }} </span><br><br>
-                <input type="hidden" name="order" value="{{ $elektroniks->name }}">
-                <span name="urun_id" id=""> Ürün No : {{ $elektroniks->id }} </span><br><br>
-                <input type="hidden" name="urun_id" value="{{ $elektroniks->id }}">
-                <span name="marka_id" id=""> Marka No : {{ $elektroniks->marka_id }} </span><br><br>
-                <input type="hidden" name="marka_id" value="{{ $elektroniks->marka_id }}">
-                <span name="price" id=""> Fiyat : {{ $elektroniks->fiyat }} </span><br><br>
-                <input type="hidden" name="price" value="{{ $elektroniks->fiyat }}">
-                <button type="submit" class="btn btn-primary gonder">Satın al</button><br>
-                <hr>
-            </form>
+            <span> Ürün adı : {{ $my_orders->order }} </span><br><br>
+            <span> Ürün No : {{ $my_orders->urun_id }} </span><br><br>
+            <span> Marka No : {{ $my_orders->marka_id }} </span><br><br>
+            <span> Fiyat : {{ $my_orders->price }} </span><br><br>
         </div>
         @endforeach<br>
     </div>
-</div>

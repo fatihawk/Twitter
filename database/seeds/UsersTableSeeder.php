@@ -54,7 +54,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ogrenci5@gmail.com',
             'password' => Hash::make('jzpB9OU19o3PgE15'),
         ]);
-        $user5->roles()->attach(Role::where('slug', 'ogrenci5')->first());*/
+        $user5->roles()->attach(Role::where('slug', 'ogrenci5')->first());
         $faker = Faker\Factory::create('tr_TR','Base','Internet');
         
         for ($i = 0; $i < 499; $i++) {
@@ -64,6 +64,14 @@ class UsersTableSeeder extends Seeder
             'password'=>$faker->password
             ]);
         }
+        */
+
+        $user = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@ondokuzon.com',
+            'password' => Hash::make('oKHZda9xFlqVC4'),
+        ]);
+        $user->roles()->attach(Role::where('slug', 'admin')->first());
 
     }
 }

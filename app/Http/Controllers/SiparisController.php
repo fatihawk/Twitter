@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class SiparisController extends Controller
 {
-    public function form()
+    public function form(Request $request)
     {
         $UrunGrup1 =Urun::where('group_id','=','1')->take(5)->get();
         $UrunGrup2 =Urun::where('group_id','=','2')->take(5)->get();
@@ -22,7 +22,14 @@ class SiparisController extends Controller
         $UrunGrup8 =Urun::where('group_id','=','8')->take(5)->get();
         $UrunGrup9 =Urun::where('group_id','=','9')->take(5)->get();
         $UrunGrup10 =Urun::where('group_id','=','10')->take(5)->get();
-        return view('siparis.form', compact('UrunGrup1','UrunGrup2','UrunGrup3','UrunGrup4','UrunGrup5','UrunGrup6','UrunGrup7','UrunGrup8','UrunGrup9','UrunGrup10'));
+        $UrunGrup11 =Urun::where('group_id','=','11')->get();
+        $query = Urun::query();
+        if($request->sort)
+         {
+           $query = $query->orderBy('fiyat', $request->sort);
+         }
+        $query = $query->where('group_id','=','1')->take(5)->get();
+        return view('siparis.form', compact('UrunGrup1','UrunGrup2','UrunGrup3','UrunGrup4','UrunGrup5','UrunGrup6','UrunGrup7','UrunGrup8','UrunGrup9','UrunGrup10','UrunGrup11','query'));
     }
     public function save(Request $request)
     {

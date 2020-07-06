@@ -53,9 +53,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/siparis/giyim', 'GiyimController@form')->name('giyim.form');
     Route::get('/siparis/kozmetik', 'KozmetikController@form')->name('kozmetik.form');
     Route::get('/siparis/muzik', 'MuzikController@form')->name('muzik.form');
+    Route::get('/urunlerim', 'UrunlerimController@form')->name('urunlerim.form');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+Route::middleware(['role:admin'])->prefix('admin')->group(function () {
+    Route::get('/urun/form', 'UrunController@form')->name('urun.form');
+    Route::post('/urun/save', 'UrunController@save')->name('urun.save');
     Route::get('post/form', 'PostController@form')->name('post.form');
     Route::post('post/save', 'PostController@save')->name('post.save');
     Route::get('post/{id}/delete', 'PostController@delete')->name('post.delete');

@@ -6,7 +6,7 @@
     <div class="card-header">
         <div class="navbar">
             <a href="{{ route('elektronik.form') }}" class="active">Elektronik</a>
-            <a href="{{ route('mutfak.form') }}" >Mutfak</a>
+            <a href="{{ route('mutfak.form') }}">Mutfak</a>
             <a href="{{ route('temizlik.form') }}">Temizlik</a>
             <a href="{{ route('kirtasiye.form') }}">Kırtasiye</a>
             <a href="{{ route('spor.form') }}">Spor</a>
@@ -16,6 +16,12 @@
             <a href="{{ route('kozmetik.form') }}">Kozmetik</a>
             <a href="{{ route('muzik.form') }}">Müzik</a>
             <a href="{{ route('musteri.form') }}">Profil</a>
+            @auth
+            <a href="{{ route('urunlerim.form') }}">Ürünlerim</a>
+            @endauth
+            @if (Auth::check() && Auth::user()->email == "admin@ondokuzon.com")
+            <a href="{{ route('urun.form') }}">Ürün Girişi yap</a>
+            @endif
         </div><br><br>
     </div>
     <div class="card-body">
@@ -23,7 +29,9 @@
             <div class="col-4">
                 <span>Elektronik</span><br>
                 <hr>
-                @foreach ($UrunGrup1 as $Group1)
+                <a href="/siparis/form?sort=ASC">Artan</a>
+                <a href="/siparis/form?sort=DESC" style="float:right">Azalan</a><br><br>
+                @foreach ($query as $Group1)
                 <div>
                     <span> Ürün : {{ $Group1->name }} </span><br><br>
                     <span> Fiyat : {{ $Group1->fiyat }} </span><br><br>
@@ -86,6 +94,13 @@
                 </div>
                 @endforeach<br>
                 <hr>
+                @foreach ($UrunGrup11 as $Group11)
+                <div>
+                    <span> Ürün : {{ $Group11->name }} </span><br><br>
+                    <span> Fiyat : {{ $Group11->fiyat }} </span><br><br>
+                </div>
+                @endforeach<br>
+                <hr>
             </div>
             <div class="col-4">
                 <span>Temizlik</span><br>
@@ -118,3 +133,8 @@
             </div>
         </div>
     </div>
+    <script>
+        function desc() {
+          document.getElementById("desc").innerHTML ="html"
+            }
+    </script>
